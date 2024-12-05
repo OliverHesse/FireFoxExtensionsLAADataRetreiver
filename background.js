@@ -3,7 +3,7 @@ browser.runtime.onMessage.addListener((message) => {
         const data = message.data;
         const blob = new Blob([data[0]], { type: "text/csv" });
         const url = URL.createObjectURL(blob);
-        console.log(data)
+     
     
         // Trigger the download
         browser.downloads.download({

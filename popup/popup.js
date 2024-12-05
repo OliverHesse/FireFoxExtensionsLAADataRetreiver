@@ -24,23 +24,21 @@ function extractData() {
     let filter_text = "[Filters]\n";
     let filter_titles = "animals,report type,duration,end date,location type,location\n"
     filter_text += filter_titles+animalType+","+reportType+","+duration+","+end_date+","+locationLabel+","+location+"\n"
-    console.log(document.getElementsByClassName("last-updated"))
-    console.log(document.getElementsByClassName("last-updated")[0])
-    console.log(document.getElementsByClassName("last-updated")[0].innerHTML.split(" ")[2])
+    
     let date = document.getElementsByClassName("last-updated")[0].innerHTML.split(" ")[2]
     let table_columns = "SubTableName,Identifier,TotalNumber,TotalPrice,WeekChangeNumber,WeekChangePrice,AssuredNumber,AssuredPrice,NonAssuredNumber,NonAssuredPrice\n"
     
     const tables = document.getElementById('tables');  
    
     if (tables) {
-        console.log("div found")
+        
         let table_as_string = "[Tables]\n"+table_columns
         for (const table of tables.children) {
             let children = table.children;
             
             
             let table_name = children[0].children[0].children[0].children[0];
-            console.log(table_name.innerHTML);
+            
             
       
             let tbody = children[1];
@@ -48,8 +46,7 @@ function extractData() {
      
             for (const row of tbody.children) {
                 let row_text = "";
-                console.log("========");
-                
+              
               
                 for (const cell of row.children) {
           
@@ -57,7 +54,7 @@ function extractData() {
                 }
                 
                 row_text = row_text.slice(0, -1);
-                console.log(row_text); 
+                
                 table_as_string += table_name.innerHTML+","+row_text+"\n"
             }
         }
