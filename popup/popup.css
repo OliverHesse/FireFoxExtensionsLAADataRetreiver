@@ -1,0 +1,9 @@
+button{
+    background-color: rgb(190, 1, 1);
+    width: 150px;
+    height: 50px;
+    color: white;
+}
+button:hover{
+    background-color: red;
+}
